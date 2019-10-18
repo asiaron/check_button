@@ -3,5 +3,6 @@ add_to_basket_button_xpath = '//button[@type="submit" and @class="btn btn-lg btn
 
 def test_add_to_basket_button_exist(browser):
     browser.get(link)
-    browser.find_element_by_xpath(add_to_basket_button_xpath)
-    # if nothing raised everything is good
+    buttons = browser.find_elements_by_xpath(add_to_basket_button_xpath)
+    n_buttons = len(buttons)
+    assert n_buttons == 1, "There are {} buttons for adding to basket".format(n_buttons)
